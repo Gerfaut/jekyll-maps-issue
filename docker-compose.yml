@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  jekyll:
+    build: ./website   
+    # Enable PROD if you want to enable analytics + CSS optimization & minimization
+    # environment:
+    #  - JEKYLL_ENV=production
+    # doc: https://jekyllrb.com/docs/variables/
+    command: jekyll serve --watch --force_polling --verbose --trace --disable-disk-cache --safe
+    ports:
+      - 4000:4000
+    volumes:
+      - ./website:/srv/jekyll
